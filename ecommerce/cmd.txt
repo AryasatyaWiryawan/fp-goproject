@@ -1,0 +1,15 @@
+Product
+//Create
+Invoke-WebRequest -Uri http://localhost:8080/products/ -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"Laptop","price":1000,"quantity":10}'
+// Update
+Invoke-WebRequest -Uri http://localhost:8080/products/1 -Method PUT -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"Updated Product","price":1500,"quantity":5}'
+// Delete
+Invoke-WebRequest -Uri http://localhost:8080/products/1 -Method DELETE -Headers @{ "Content-Type" = "application/json" }
+
+User
+// Create
+Invoke-WebRequest -Uri http://localhost:8080/users/ -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"John Doe","email":"johndoe@example.com","password":"1234"}'
+// Update
+Invoke-WebRequest -Uri http://localhost:8080/users/1 -Method PUT -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"Updated User","email":"updateduser@example.com","password":"newpassword"}'
+// Delete
+Invoke-WebRequest -Uri http://localhost:8080/users/1 -Method DELETE -Headers @{ "Content-Type" = "application/json" }

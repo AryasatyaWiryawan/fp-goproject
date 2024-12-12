@@ -1,18 +1,22 @@
 package main
 
 import (
-	"ecommerce/database"
-	"ecommerce/routes"
-
-	"github.com/gin-gonic/gin"
+    "ecommerce/database"
+    "ecommerce/routes"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-	database.InitDatabase()
-	database.Migrate()
+    // Initialize the database connection
+    database.InitDatabase()
 
-	router := gin.Default()
-	routes.SetupRoutes(router)
+    // Migrate the models
+    database.Migrate()
 
-	router.Run(":8080")
+    // Set up Gin routes
+    router := gin.Default()
+    routes.SetupRoutes(router)
+
+    // Start the application
+    router.Run(":8080")
 }
