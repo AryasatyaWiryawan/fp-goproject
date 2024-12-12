@@ -1,15 +1,20 @@
 package routes
 
 import (
-	"github.com/gin-gonic/gin"
+    "ecommerce/controllers"
+    "github.com/gin-gonic/gin"
 )
 
-func InitializeRoutes(r *gin.Engine) {
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Welcome to the E-commerce API!",
-		})
-	})
+func SetupRoutes(router *gin.Engine) {
+    userRoutes := router.Group("/users")
+    {
+        userRoutes.GET("/", controllers.GetUsers)
+        userRoutes.POST("/", controllers.CreateUser)
+    }
 
-	// Add more routes here later
+    productRoutes := router.Group("/products")
+    {
+        productRoutes.GET("/", controllers.GetProducts)
+        productRoutes.POST("/", controllers.CreateProduct)
+    }
 }
