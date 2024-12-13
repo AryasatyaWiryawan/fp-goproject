@@ -15,6 +15,7 @@ func main() {
 
     // Set up Gin routes
     router := gin.Default()
+	router.Static("/public", "./public")
     routes.SetupRoutes(router)
 
     // Start the application
